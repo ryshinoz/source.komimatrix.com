@@ -11,3 +11,4 @@ gem "middleman-syntax"
 gem "builder", "~> 3.0"
 
 gem "redcarpet"
+gem "nokogiri"
