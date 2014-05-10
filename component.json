@@ -1,0 +1,8 @@
+{
+  "name": "middleman-app.js",
+  "version": "0.0.0",
+  "dependencies": {
+    "bootstrap": null,
+    "bootswatch": "~3.1.1+1"
+  }
+}
