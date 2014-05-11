@@ -8,24 +8,51 @@
     <%= stylesheet_link_tag 'application' %>
   </head>
   <body>
-    <div class="container">
+
+  <div class="container">
         <div class="row">
-            <div class="col-md-9" role="main">
+<div class="navbar navbar-inverse">
+  <div class="navbar-header">
+    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </button>
+    <a class="navbar-brand" href="#">Brand</a>
+  </div>
+  <div class="navbar-collapse collapse navbar-responsive-collapse">
+    <ul class="nav navbar-nav"></ul>
+    <ul class="nav navbar-nav navbar-right">
+      <li><a href="https://twitter.com/ryshinoz"><i class="fa fa-twitter-square fa-1x"></i></a></li>
+      <li><a href="https://github.com/ryshinoz"><i class="fa fa-github-square fa-1x"></i></a></li>
+    </ul>
+  </div>
+</div>
+            <div class="col-lg-9" role="main">
                 <%= yield %>
             </div>
-            <div class="col-md-3">
-                <h4>最近の記事</h4>
-                <ol>
-                  <% blog.articles[0...10].each do |article| %>
-                    <li><%= link_to article.title, article %> <span><%= article.date.strftime('%b %e') %></span></li>
+            <div class="col-lg-3">
+                <div>
+                    <h4>最近の記事</h4>
+                <ul style="list-style:none; padding-left: 10px;">
+                  <% blog.articles[0...5].each do |article| %>
+                      <li>
+                      <%= link_to article.title, article %>
+                      <span class="text-muted"><small><%= article.date.strftime('%Y年%m月%d日') %></small></span>
+                      </li>
                   <% end %>
-                </ol>
+                </ul>
+                </div>
+                <div>
                 <h4>月別</h4>
+                <ul style="list-style:none; padding-left: 10px;">
                 <% blog.articles.group_by {|a| a.date.year }.each do |year, articles| %>
                   <li><%= link_to "#{year} (#{articles.size})", blog_year_path(year) %></li>
                 <% end %>
-                    </div>
-                </div>
+            </ul>
+                <div>
+            </div>
+        </div>
     </div>
     <%= javascript_include_tag 'application' %>
   </body>

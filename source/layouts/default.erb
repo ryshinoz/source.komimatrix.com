@@ -1,0 +1,7 @@
+<% wrap_layout :layout do %>
+  <article>
+      <h2><%= current_article.title %></h2>
+      <p class="text-success"><%= current_article.date.strftime('%Y年%m月%d日') %></p>
+      <%= yield %>
+  </article>
+<% end %>
