@@ -110,3 +110,4 @@ set :markdown, :tables => true, :autolink => true, :gh_blockcode => true, :fence
 
 activate :syntax
 activate :directory_indexes
+activate :livereload
